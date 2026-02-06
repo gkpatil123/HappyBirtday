@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Surprise 💍</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #dda0dd, #ffe4e1);
+            background-size: 400% 400%;
+            animation: bgMove 10s infinite ease-in-out;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Unlimited Falling Roses */
+        .rose {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            animation: fallRose linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fallRose {
+            0% { transform: translateY(-50px) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* Proposal Box */
+        .proposal-box {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            animation: popUp 1.5s ease;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Ring Animation */
+        .ring {
+            font-size: 4rem;
+            animation: ringGlow 2s infinite ease-in-out;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes ringGlow {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(10deg); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ff1493;
+            margin-bottom: 1rem;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #444;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Buttons */
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        button {
+            padding: 15px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.2);
+        }
+
+        #noBtn {
+            background: #f8f8f8;
+            color: #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        /* Popup Message */
+        .popup {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 182, 193, 0.35);
+            font-size: 1.5rem;
+            color: #ff1493;
+            font-weight: bold;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Fireworks Celebration */
+        .fireworks {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 50;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .fireworks span {
+            animation: explode 1s infinite alternate;
+        }
+
+        @keyframes explode {
+            from { transform: scale(1); opacity: 0.6; }
+            to { transform: scale(1.4); opacity: 1; }
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff1493;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Proposal Box -->
+    <div class="proposal-box">
+        <div class="ring">💍</div>
+
+        <h1>Will You Be Mine?</h1>
+
+        <p>
+            You are my favorite One 💖<br>
+            <br><br>
+            Will you accept my love forever? 🌹💕
+        </p>
+
+        <div class="btns">
+            <button id="yesBtn">Yes ❤️</button>
+            <button id="noBtn">No 😅</button>
+        </div>
+
+        <!-- Popup Message -->
+        <div class="popup" id="popupMsg"></div>
+    </div>
+
+    <!-- Fireworks Screen -->
+    <div class="fireworks" id="fireworksScreen">
+        🎆🎇🎆 <br>
+        <span> I hope we both will be happy together 💖</span><br>
+        🎇🎆🎇
+    </div>
+
+    <!-- Romantic Music -->
+    <audio id="bgMusic" loop>
+        <source src="romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-btn" id="musicBtn">🎵 Play Music</div>
+
+    <script>
+        /* Unlimited Roses Generator 🌹 */
+        function createRose() {
+            const rose = document.createElement("div");
+            rose.classList.add("rose");
+            rose.innerHTML = "🌹";
+
+            rose.style.left = Math.random() * 100 + "vw";
+            rose.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+            document.body.appendChild(rose);
+
+            setTimeout(() => {
+                rose.remove();
+            }, 7000);
+        }
+
+        setInterval(createRose, 400);
+
+        /* YES Button Click */
+        document.getElementById("yesBtn").addEventListener("click", function () {
+
+            document.getElementById("popupMsg").innerHTML =
+                "💖 Thank you for saying YES! <br><br>" +
+                "From today, my happiness begins with you 🌸<br>" +
+                "I promise to always respect you, care for you, and stay with you forever 💍✨";
+
+            document.getElementById("popupMsg").style.display = "block";
+
+            // Hide Buttons
+            document.getElementById("yesBtn").style.display = "none";
+            document.getElementById("noBtn").style.display = "none";
+
+            // Fireworks Show
+            document.getElementById("fireworksScreen").style.display = "flex";
+
+            setTimeout(() => {
+                document.getElementById("fireworksScreen").style.display = "none";
+            }, 4000);
+        });
+
+        /* NO Button Escape 😅 */
+        document.getElementById("noBtn").addEventListener("mouseover", function () {
+            let x = Math.random() * 300 - 150;
+            let y = Math.random() * 200 - 100;
+            this.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        /* Music Button */
+        const music = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+
+        musicBtn.addEventListener("click", function () {
+            if (music.paused) {
+                music.play();
+                musicBtn.innerHTML = "⏸ Pause Music";
+            } else {
+                music.pause();
+                musicBtn.innerHTML = "🎵 Play Music";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
