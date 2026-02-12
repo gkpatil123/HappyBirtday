@@ -6,7 +6,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Typing effect for greeting
-const greetingText = “I know I’m late, but I wanted to wish you in a special way.” 💖";
+const greetingText = “I know I’m late, but I wanted to wish you in a special way. 💖";
 const greetingElement = document.querySelector('.greeting');
 let charIndex = 0;
 
