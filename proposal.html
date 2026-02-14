@@ -25,7 +25,7 @@ body{
     100%{background-position:0% 50%}
 }
 
-/* Falling Roses */
+/* 🌹 Falling Roses */
 .rose{
     position:fixed;
     top:-40px;
@@ -35,7 +35,6 @@ body{
     pointer-events:none;
     z-index:1;
 }
-
 @keyframes fall{
     to{transform:translateY(120vh) rotate(360deg);}
 }
@@ -53,7 +52,7 @@ body{
 .proposal-box{
     background:rgba(255,255,255,0.95);
     padding:2.5rem 2rem;
-    border-radius:25px;
+    border-radius:30px;
     text-align:center;
     width:100%;
     max-width:650px;
@@ -77,7 +76,61 @@ h1{
     margin:1rem 0;
     animation:heart 2s infinite;
 }
-@keyframes heart{50%{transform:scale(1.1);}}
+@keyframes heart{
+    50%{transform:scale(1.1);}
+}
+
+/* 📸 PHOTO BOX */
+.photo-box{
+    position:relative;
+    width:100%;
+    max-width:420px;
+    margin:1.5rem auto 2rem;
+    border-radius:25px;
+    overflow:hidden;
+
+    box-shadow:
+      0 20px 40px rgba(0,0,0,0.35),
+      0 0 25px rgba(255,105,180,0.6);
+
+    animation:photoGlow 3s ease-in-out infinite;
+}
+
+.photo-box img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
+
+/* Soft overlay */
+.photo-box::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.35),
+        rgba(255,255,255,0.05)
+    );
+}
+
+@keyframes photoGlow{
+    0%{
+        box-shadow:
+          0 20px 40px rgba(0,0,0,0.35),
+          0 0 15px rgba(255,105,180,0.5);
+    }
+    50%{
+        box-shadow:
+          0 25px 55px rgba(0,0,0,0.45),
+          0 0 35px rgba(255,20,147,0.8);
+    }
+    100%{
+        box-shadow:
+          0 20px 40px rgba(0,0,0,0.35),
+          0 0 15px rgba(255,105,180,0.5);
+    }
+}
 
 /* Text */
 p{
@@ -108,13 +161,15 @@ button{
     color:#fff;
     animation:bounce 2s infinite;
 }
-@keyframes bounce{50%{transform:translateY(-6px);}}
+@keyframes bounce{
+    50%{transform:translateY(-6px);}
+}
 
 #noBtn{
     background:#eee;
 }
 
-/* Popup Message */
+/* Popup */
 .popup{
     display:none;
     margin-top:1.5rem;
@@ -126,12 +181,17 @@ button{
     font-weight:bold;
 }
 
-/* Celebration Text */
+/* Fireworks */
 .fireworks{
     display:none;
     margin-top:2rem;
     font-size:1.8rem;
     color:#ff1493;
+}
+
+/* Mobile */
+@media(max-width:600px){
+    .photo-box{max-width:90%;}
 }
 </style>
 </head>
@@ -139,37 +199,40 @@ button{
 <body>
 
 <div class="wrapper">
-    <div class="proposal-box">
+<div class="proposal-box">
 
-        <div class="ring">💍</div>
+    <div class="ring">💍</div>
+    <h1>Will You Be Mine?</h1>
 
-        <h1>Will You Be Mine?</h1>
-
-        <!-- 💝 VALENTINE + BIRTHDAY MESSAGE -->
-        <p>
-            I know I’m a little late for your birthday 🎂<br>
-            So I wanted to do something special 💝<br><br>
-            This Valentine’s Day, I just want to ask you one thing…
-        </p>
-
-        <div class="btns">
-            <button id="yesBtn">Yes ❤️</button>
-            <button id="noBtn">No 😅</button>
-        </div>
-
-        <div class="popup" id="popupMsg"></div>
-
-        <div class="fireworks" id="fireworks">
-            🎆🎇🎆<br>
-            I hope we both will be happy together 💖<br>
-            🎇🎆🎇
-        </div>
-
+    <!-- 📸 PROPOSAL PHOTO -->
+    <div class="photo-box">
+        <img src="vk4.jpg" alt="Proposal Moment">
     </div>
+
+    <p>
+        I know I’m a little late for your birthday 🎂<br>
+        So I wanted to do something special 💝<br><br>
+        This Valentine’s Day, I just want to ask you one thing…
+    </p>
+
+    <div class="btns">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 😅</button>
+    </div>
+
+    <div class="popup" id="popupMsg"></div>
+
+    <div class="fireworks" id="fireworks">
+        🎆🎇🎆<br>
+        I hope we both will be happy together 💖<br>
+        🎇🎆🎇
+    </div>
+
+</div>
 </div>
 
 <script>
-/* Roses Generator */
+/* Roses */
 function rose(){
     const r=document.createElement("div");
     r.className="rose";
@@ -181,7 +244,7 @@ function rose(){
 }
 setInterval(rose,600);
 
-/* YES Button */
+/* YES */
 yesBtn.onclick=()=>{
     popupMsg.innerHTML=
     "💖 Thank you for saying YES! <br><br>"+
@@ -193,9 +256,10 @@ yesBtn.onclick=()=>{
     yesBtn.style.display=noBtn.style.display="none";
 };
 
-/* NO Button Fun Move */
+/* NO Button Move */
 noBtn.onmouseover=function(){
-    this.style.transform=`translate(${Math.random()*100-50}px,${Math.random()*60-30}px)`;
+    this.style.transform=
+    `translate(${Math.random()*100-50}px,${Math.random()*60-30}px)`;
 };
 </script>
 
